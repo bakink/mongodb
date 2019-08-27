@@ -1,0 +1,10 @@
+
+MongoDB Tip
+
+Want to find documents that don't contain a field, try $exists
+
+Usecase: 
+
+The following query will return all user documents where 'city' field is not present
+
+db.getCollection('users').find({city: {"$exists": false}})
