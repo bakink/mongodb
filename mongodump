@@ -1,0 +1,2 @@
+mongodump -d TEST1 --dumpDbUsersAndRoles  
+mongorestore -d TEST2 --restoreDbUsersAndRoles dump/TEST1/  
