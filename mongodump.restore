@@ -1,0 +1,3 @@
+
+mongodump -d "addresses" -p "xxxxxx" --host=localhost --port=27017 --out /data/mongodump/addresses.dmp -u "whol" --authenticationDatabase "admin" --dumpDbUsersAndRoles
+mongorestore --host localhost  --port 27000 --nsInclude 'addresses.*'   --username "xxxxx" --authenticationDatabase "admin" /data/dump_docker/addresses.dmp/addresses/ --restoreDbUsersAndRoles -d "addresses" --drop
