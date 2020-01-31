@@ -1,0 +1,2 @@
+
+mongo admin --port 30000 --eval 'db.shutdownServer()'
