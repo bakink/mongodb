@@ -1,3 +1,6 @@
 
 mongo admin --port 30000 --eval 'db.shutdownServer()'
 mongod --port 27000 --dbpath /data/db --logpath /data/log/mondod.log --bind_ip "127.0.0.1,192.168.103.100" --auth --fork
+--connect
+
+mongo --username m103-admin --password m103-pass --authenticationDatabase admin --host localhost --port 27000
