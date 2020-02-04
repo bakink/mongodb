@@ -1,0 +1,19 @@
+
+
+use m103
+db.createCollection('messages')
+
+use local
+db.oplog.rs.find( { "o.msg": { $ne: "periodic noop" } } ).sort( { $natural: -1 } ).limit(1).pretty()
+
+use m103
+for ( i=0; i< 100; i++) { db.messages.insert( { 'msg': 'not yet', _id: i } ) }
+db.messages.count()
+
+use local
+db.oplog.rs.find({"ns": "m103.messages"}).sort({$natural: -1})
+
+use m103
+db.messages.updateMany( {}, { $set: { author: 'norberto' } } )
+use local
+db.oplog.rs.find( { "ns": "m103.messages" } ).sort( { $natural: -1 } )
