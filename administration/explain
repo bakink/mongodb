@@ -1,0 +1,9 @@
+
+use m103
+show collections
+
+db.products.find({"sku" : 1000000749 }).explain()
+
+db.products.find( {
+  "name" : "Gods And Heroes: Rome Rising - Windows [Digital Download]" }
+).explain()
