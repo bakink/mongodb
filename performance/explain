@@ -1,0 +1,4 @@
+
+use m201
+db.people.find({"ssn": "720-38-5636"}).explain("executionStats")
+
