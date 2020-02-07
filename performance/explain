@@ -2,3 +2,14 @@
 use m201
 db.people.find({"ssn": "720-38-5636"}).explain("executionStats")
 
+
+use m103
+show collections
+
+db.products.find({"sku" : 1000000749 }).explain()
+
+db.products.find( {
+  "name" : "Gods And Heroes: Rome Rising - Windows [Digital Download]" }
+).explain()
+
+db.products.explain("executionStats").find({"sku": 23153496})
