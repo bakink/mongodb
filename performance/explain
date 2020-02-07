@@ -1,8 +1,4 @@
 
-use m201
-db.people.find({"ssn": "720-38-5636"}).explain("executionStats")
-
-
 use m103
 show collections
 
@@ -13,3 +9,24 @@ db.products.find( {
 ).explain()
 
 db.products.explain("executionStats").find({"sku": 23153496})
+
+
+
+use m201
+db.people.find({"ssn": "720-38-5636"}).explain("executionStats")
+
+queryPlanner indicates collection scanning will be used COLLSCAN - looking at EVERY document in collection.
+executionStats indicates had to examine 50474 documents, which is number of documents in collection.
+executionStats also indicates only 1 document returned.
+totalKeysExamined: 0 - looked at 0 index keys, i.e. no index used because we haven't created any yet.
+Bad ratio, inefficient query: 1 doc returned / 50474 examined.
+
+Create an index from mongo shell, on people collection, ssn field, 1 for ascending:
+
+db.people.createIndex({ssn: 1})
+Running above command makes MongoDB build the index. To do so, it must look at every doc in collection, pulling out ssn field. If ssn field not present on a doc, key entry will have null value.
+
+Run query again with explain:
+
+exp = db.people.explain("executionStats")  // create explainable object
+exp.find({"ssn": "720-38-5636"}) // run find on explain object
