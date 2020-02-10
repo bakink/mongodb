@@ -1,0 +1,24 @@
+
+
+storage:
+   dbPath: <string>
+   indexBuildRetry: <boolean>
+   journal:
+      enabled: <boolean>
+      commitIntervalMs: <num>
+   directoryPerDB: <boolean>
+   syncPeriodSecs: <int>
+   engine: <string>
+   wiredTiger:
+      engineConfig:
+         cacheSizeGB: <number>
+         journalCompressor: <string>
+         directoryForIndexes: <boolean>
+         maxCacheOverflowFileSizeGB: <number>
+      collectionConfig:
+         blockCompressor: <string>
+      indexConfig:
+         prefixCompression: <boolean>
+   inMemory:
+      engineConfig:
+         inMemorySizeGB: <number>
