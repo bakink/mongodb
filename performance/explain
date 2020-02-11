@@ -1,4 +1,14 @@
 
+Default argument (don't need to specify) - WiLL NOT execute query:
+exp = db.people.explain("queryPlanner")
+
+Another argument (must specify) to get stats - WILL execute query:
+exp = db.people.explain("executionStats")
+
+Most verbose - use when want to look at alternate plans that were considered by planner but rejected - WILL execute query:
+exp = db.people.explain("allPlansExecution")
+
+
 use m103
 show collections
 
